@@ -34,7 +34,7 @@ node {
     {
        // echo "deploying into k8's"
         withKubeConfig(  credentialsId: 'kubernetes') {
-        sh 'kubectl apply -f deploymnet.yml '
+        sh 'kubectl apply -f deployment.yml '
         sh 'kubectl apply -f service.yml'
        
         }
