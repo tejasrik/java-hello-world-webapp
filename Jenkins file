@@ -1,10 +1,10 @@
 node {
     stage('scm'){
-        git 'https://github.com/singaravellu/employeeManagement.git'
+        git 'https://github.com/singaravellu/java-hello-world-webapp.git'
     }
     stage('build')
     {
-        sh 'mvn package -DskipTests'
+        sh 'mvn package'
     }
     /* stage('publishing the test results')
     {
@@ -20,7 +20,7 @@ node {
     stage ('building docker image')
     {
         echo "building the docker image  "
-        sh 'docker image build -t dockersing/employee:1.0 .'
+        sh 'docker image build -t dockersing/hello-world:1.0 .'
     }
     stage('Push the docker image to hub'){
         echo "login into docker hub "
@@ -28,23 +28,14 @@ node {
          sh 'docker login -u ${username} -p ${passwd} '   
     // some block
       }
-      sh 'docker push dockersing/employee:1.0'
+      sh 'docker push dockersing/hello-world:1.0'
     }
     stage('Deployment in cluster')
     {
        // echo "deploying into k8's"
         withKubeConfig(  credentialsId: 'kubernetes') {
 
-       /* sh 'kubectl apply -f Deployment.yml'
-       sh 'kubectl apply -f Service.yml'
-       sh 'kubectl apply -f Deployment-mysql.yml'
-       sh 'kubectl apply -f Service-mysql.yml' */
-       sh script: """
-       kubectl delete -f Deployment.yml
-       kubectl delete -f Service.yml
-       kubectl delete -f Deployment-mysql.yml
-       kubectl delete -f Service-mysql.yml
-       """
+       
         }
     }
 }
