@@ -17,5 +17,5 @@ spec:
       - name: employee
         image: dockersing/hello-world:1.0
         ports:
-        - containerPort: 8000
+        - containerPort: 8080
           protocol: TCP
