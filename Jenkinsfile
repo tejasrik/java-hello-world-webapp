@@ -20,7 +20,7 @@ node {
     stage ('building docker image')
     {
         echo "building the docker image  "
-        sh 'docker image build -t dockersing/hello-world:1.0 .'
+        sh 'docker image build -t dockersing/hello-world .'
     }
     stage('Push the docker image to hub'){
         echo "login into docker hub "
@@ -28,7 +28,7 @@ node {
          sh 'docker login -u ${username} -p ${passwd} '   
     // some block
       }
-      sh 'docker push dockersing/hello-world:1.0'
+      sh 'docker push dockersing/hello-world'
     }
     stage('Deployment in cluster')
     {
