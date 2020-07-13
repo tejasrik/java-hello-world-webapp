@@ -20,7 +20,8 @@ node {
     stage ('building docker image')
     {
         echo "building the docker image  "
-        sh 'docker image build -t dockersing/hello-world .'
+        sh 'docker image build -t dockersing/hello-world:1.1'
+        sh 'docker image prune -f'
     }
     stage('Push the docker image to hub'){
         echo "login into docker hub "
@@ -37,7 +38,7 @@ node {
             
         sh 'kubectl delete -f deployment.yml '
         sh 'kubectl delete -f service.yml'
-       
+        sh 'docker image prune -f'
         }
     }
 }
