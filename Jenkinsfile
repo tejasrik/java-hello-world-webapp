@@ -38,7 +38,7 @@ node {
             
         sh 'kubectl delete -f deployment.yml '
         sh 'kubectl delete -f service.yml'
-        sh 'docker image prune -f'
+        //sh 'docker image prune -f'
         }
     }
 }
