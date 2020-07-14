@@ -20,7 +20,7 @@ node {
     stage ('building docker image')
     {
         echo "building the docker image  "
-        sh 'docker image build -t dockersing/hello-world:1.1 .'
+        sh 'docker image build -t dockersing/hello-world:2.0 .'
         sh 'docker image prune -f'
        
     }
@@ -37,9 +37,10 @@ node {
        // echo "deploying into k8's"
         withKubeConfig(  credentialsId: 'kubernetes') {
 
-        sh 'docker image prune -f'    
+            
         sh 'kubectl apply -f deployment.yml '
         sh 'kubectl apply -f service.yml'
+        sh 'docker image prune -f'
         
        
         }
