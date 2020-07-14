@@ -38,8 +38,8 @@ node {
         withKubeConfig(  credentialsId: 'kubernetes') {
 
             
-        sh 'kubectl apply -f deployment.yml '
-        sh 'kubectl apply -f service.yml'
+        sh 'kubectl delete -f deployment.yml '
+        sh 'kubectl delete -f service.yml'
         sh 'docker image prune -f'
         
        
