@@ -20,7 +20,7 @@ node {
     stage ('building docker image')
     {
         echo "building the docker image  "
-        sh 'docker image build -t dockersing/hello-world:2.0 .'
+        sh 'docker image build -t dockersing/hello-world:3.0 .'
         sh 'docker image prune -f'
        
     }

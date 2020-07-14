@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: employee
-        image: dockersing/hello-world:2.0
+        image: dockersing/hello-world:3.0
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
