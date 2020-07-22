@@ -3,7 +3,7 @@ env:
   secrets-manager:
     LOGIN: prod/sonar1:sonartoken
     HOST: prod/sonar1:HOST
-    Organization:prod/sonar1: Organization
+    Organization: prod/sonar1:Organization
     Project: prod/sonar1:Project
 phases:
   install:
